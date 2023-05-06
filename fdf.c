@@ -6,13 +6,13 @@
 /*   By: obouhrir <obouhrir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 00:46:20 by obouhrir          #+#    #+#             */
-/*   Updated: 2023/05/05 18:42:35 by obouhrir         ###   ########.fr       */
+/*   Updated: 2023/05/05 21:56:50 by obouhrir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_init(t_map *map)
+void	init(t_map *map)
 {
 	map->mlx = mlx_init();
 	map->win = mlx_new_window(map->mlx, 1920, 1080, "FDF");
@@ -37,7 +37,7 @@ int	main(int ac, char **av)
 	{
 		check_name(av[1], ".fdf");
 		get_value(av[1], &map);
-		ft_init(&map);
+		init(&map);
 		mlx_loop_hook(map.mlx, &draw_map, &map);
 		mlx_hook(map.win, 2, 0, key_hook, &map);
 		mlx_mouse_hook(map.win, mouse_hook, &map);

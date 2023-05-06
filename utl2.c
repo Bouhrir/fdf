@@ -6,7 +6,7 @@
 /*   By: obouhrir <obouhrir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 18:44:36 by obouhrir          #+#    #+#             */
-/*   Updated: 2023/05/05 18:44:43 by obouhrir         ###   ########.fr       */
+/*   Updated: 2023/05/06 14:51:11 by obouhrir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,14 @@ size_t	ft_strlen(char *c)
 	while (c[i] != '\0')
 		i++;
 	return (i);
+}
+
+/*------------swap-------------------*/
+void	swap_points(t_point *p1, t_point *p2)
+{
+	t_point	tmp;
+
+	tmp = *p1;
+	*p1 = *p2;
+	*p2 = tmp;
 }

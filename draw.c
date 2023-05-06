@@ -6,7 +6,7 @@
 /*   By: obouhrir <obouhrir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:30:12 by obouhrir          #+#    #+#             */
-/*   Updated: 2023/05/05 18:30:44 by obouhrir         ###   ########.fr       */
+/*   Updated: 2023/05/06 13:39:25 by obouhrir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,15 @@ void	dda(t_point a, t_point b, t_map *map)
 
 	isometric(&a, map);
 	isometric(&b, map);
+	if (a.x > b.x)
+		swap_points(&a, &b);
 	p.dy = b.y - a.y;
 	p.dx = b.x - a.x;
-	if (abs(p.dy) > abs(p.dx))
-		p.steps = abs(p.dy);
-	else
-		p.steps = abs(p.dx);
+	p.steps = abs(p.dx);
 	p.yi = p.dy / (float)p.steps;
 	p.xi = p.dx / (float)p.steps;
-	y = a.y;
 	x = a.x;
+	y = a.y;
 	while (p.steps)
 	{
 		my_mlx_pixel_put(map, x, y, PURPLE);

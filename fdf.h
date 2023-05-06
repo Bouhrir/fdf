@@ -6,7 +6,7 @@
 /*   By: obouhrir <obouhrir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 16:16:32 by obouhrir          #+#    #+#             */
-/*   Updated: 2023/05/05 18:19:44 by obouhrir         ###   ########.fr       */
+/*   Updated: 2023/05/06 13:40:13 by obouhrir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 # define FDF_H
 
 # include <math.h>
-# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <string.h>
 # include <mlx.h>
 # include <fcntl.h>
 # include <limits.h>
@@ -28,6 +26,30 @@
 
 # ifndef PURPLE
 #  define PURPLE 0x8300FF
+# endif
+
+# ifndef IN
+#  define IN 4
+# endif
+
+# ifndef OUT
+#  define OUT 5
+# endif
+
+# ifndef UP
+#  define UP 126
+# endif
+
+# ifndef DOWN
+#  define DOWN 125
+# endif
+
+# ifndef RIGHT
+#  define RIGHT 124
+# endif
+
+# ifndef LEFT
+#  define LEFT 123
 # endif
 
 typedef struct s_point
@@ -82,10 +104,10 @@ int		handle(void);
 void	check_name(char *av, char *fdf);
 void	fd_exit(void);
 void	my_mlx_pixel_put(t_map *data, int x, int y, int color);
-void	put_image(t_map *map);
 void	free_arg(char **arg);
 void	get_value(char *file, t_map *map);
 int		draw_map(t_map *map);
 int		mouse_hook(int key, int x, int y, t_map *map);
+void	swap_points(t_point *p1, t_point *p2);
 
 #endif
