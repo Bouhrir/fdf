@@ -6,7 +6,7 @@
 /*   By: obouhrir <obouhrir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:25:24 by obouhrir          #+#    #+#             */
-/*   Updated: 2023/05/01 13:25:52 by obouhrir         ###   ########.fr       */
+/*   Updated: 2023/05/08 22:02:28 by obouhrir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,11 @@ void	free_arg(char **arg)
 		free(arg[i]);
 		i++;
 	}
+	free(arg);
+}
+
+void	close_free(int fd, char *line)
+{
+	close(fd);
+	free(line);
 }

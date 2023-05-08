@@ -6,7 +6,7 @@
 /*   By: obouhrir <obouhrir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 18:43:28 by obouhrir          #+#    #+#             */
-/*   Updated: 2023/05/05 22:38:33 by obouhrir         ###   ########.fr       */
+/*   Updated: 2023/05/06 17:02:48 by obouhrir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,11 @@ void	fd_exit(void)
 int	key_hook(int key, t_map *map)
 {
 	if (key == 53)
+	{
+		mlx_destroy_image(map->mlx, map->img.img);
+		mlx_destroy_window(map->mlx, map->win);
 		exit(0);
+	}
 	if (key == UP)
 		map->y_offset -= 5;
 	if (key == DOWN)
@@ -47,7 +51,9 @@ int	key_hook(int key, t_map *map)
 }
 
 /*------------handle-------------------*/
-int	handle(void)
+int	handle(t_map *map)
 {
+	mlx_destroy_image(map->mlx, map->img.img);
+	mlx_destroy_window(map->mlx, map->win);
 	exit(0);
 }

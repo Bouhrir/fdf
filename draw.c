@@ -6,11 +6,12 @@
 /*   By: obouhrir <obouhrir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:30:12 by obouhrir          #+#    #+#             */
-/*   Updated: 2023/05/06 13:39:25 by obouhrir         ###   ########.fr       */
+/*   Updated: 2023/05/08 18:49:19 by obouhrir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include "stdio.h"
 
 void	isometric(t_point *p, t_map *map)
 {
@@ -19,8 +20,8 @@ void	isometric(t_point *p, t_map *map)
 	int	y;
 
 	z = map->map[p->y][p->x - 13];
-	x = p->x * (50 + map->zoom);
-	y = p->y * (50 + map->zoom);
+	x = p->x * (map->zoom);
+	y = p->y * (map->zoom);
 	p->x = ((x - y) * cos(0.523599));
 	p->y = (-z + (x + y) * sin(0.523599));
 	p->x += map->x_offset;
@@ -86,10 +87,10 @@ void	clear_window(t_map *map)
 	int	j;
 
 	i = 0;
-	while (i < 1920)
+	while (i < WIDTH)
 	{
 		j = 0;
-		while (j < 1080)
+		while (j < HEIGHT)
 		{
 			my_mlx_pixel_put(map, i, j, 0);
 			j++;

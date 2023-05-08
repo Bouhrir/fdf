@@ -6,7 +6,7 @@
 /*   By: obouhrir <obouhrir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 01:02:56 by obouhrir          #+#    #+#             */
-/*   Updated: 2023/05/05 18:44:34 by obouhrir         ###   ########.fr       */
+/*   Updated: 2023/05/08 19:07:55 by obouhrir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ char	**ft_split(char *s, char c)
 {
 	char	**res;
 
+	if (!s)
+		return (NULL);
 	res = (char **)malloc((count(s, c) + 1) * sizeof(char *));
 	if (!res)
 		return (NULL);

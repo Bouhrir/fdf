@@ -6,7 +6,7 @@
 /*   By: obouhrir <obouhrir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 00:46:20 by obouhrir          #+#    #+#             */
-/*   Updated: 2023/05/05 21:56:50 by obouhrir         ###   ########.fr       */
+/*   Updated: 2023/05/08 18:51:01 by obouhrir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	init(t_map *map)
 	map->img.img = mlx_new_image(map->mlx, 1920, 1080);
 	map->img.addr = mlx_get_data_addr(map->img.img, &map->img.bits_per_pixel,
 			&map->img.line_length, &map->img.endian);
-	map->zoom = 0;
+	map->zoom = 30;
 	map->x_offset = 0;
 	map->y_offset = 0;
 }
@@ -30,7 +30,7 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		write(2, "Please enter 2 agement!!!\n", 26);
+		write(2, "error: not enough arguments!!!\n", 31);
 		exit(0);
 	}
 	else
@@ -41,7 +41,7 @@ int	main(int ac, char **av)
 		mlx_loop_hook(map.mlx, &draw_map, &map);
 		mlx_hook(map.win, 2, 0, key_hook, &map);
 		mlx_mouse_hook(map.win, mouse_hook, &map);
-		mlx_hook(map.win, 17, 0, handle, NULL);
+		mlx_hook(map.win, 17, 0, handle, &map);
 		mlx_loop(map.mlx);
 	}
 }

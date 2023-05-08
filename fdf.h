@@ -6,7 +6,7 @@
 /*   By: obouhrir <obouhrir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 16:16:32 by obouhrir          #+#    #+#             */
-/*   Updated: 2023/05/06 13:40:13 by obouhrir         ###   ########.fr       */
+/*   Updated: 2023/05/08 22:02:42 by obouhrir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1550
+# endif
+
+# ifndef WIDTH
+#  define WIDTH 1920
+# endif
+
+# ifndef HEIGHT
+#  define HEIGHT 1080
 # endif
 
 # ifndef PURPLE
@@ -100,7 +108,7 @@ char	*ft_join(char *arc, char *buff);
 char	**ft_split(char *s, char c);
 int		ft_atoi(char	*str);
 int		key_hook(int key, t_map *map);
-int		handle(void);
+int		handle(t_map *map);
 void	check_name(char *av, char *fdf);
 void	fd_exit(void);
 void	my_mlx_pixel_put(t_map *data, int x, int y, int color);
@@ -109,5 +117,7 @@ void	get_value(char *file, t_map *map);
 int		draw_map(t_map *map);
 int		mouse_hook(int key, int x, int y, t_map *map);
 void	swap_points(t_point *p1, t_point *p2);
+void	g_exit(void);
+void	close_free(int fd, char *line);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: obouhrir <obouhrir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 18:44:36 by obouhrir          #+#    #+#             */
-/*   Updated: 2023/05/06 14:51:11 by obouhrir         ###   ########.fr       */
+/*   Updated: 2023/05/08 18:46:35 by obouhrir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	my_mlx_pixel_put(t_map *data, int x, int y, int color)
 {
 	char	*dst;
 
-	if (x >= 0 && x < 1920 && y >= 0 && y < 1080)
+	if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT)
 	{
 		dst = data->img.addr + (y * data->img.line_length + x
 				* (data->img.bits_per_pixel / 8));
