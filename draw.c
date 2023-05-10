@@ -6,12 +6,11 @@
 /*   By: obouhrir <obouhrir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:30:12 by obouhrir          #+#    #+#             */
-/*   Updated: 2023/05/08 18:49:19 by obouhrir         ###   ########.fr       */
+/*   Updated: 2023/05/10 18:02:15 by obouhrir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include "stdio.h"
 
 void	isometric(t_point *p, t_map *map)
 {
@@ -19,7 +18,7 @@ void	isometric(t_point *p, t_map *map)
 	int	x;
 	int	y;
 
-	z = map->map[p->y][p->x - 13];
+	z = map->map[p->y][p->x];
 	x = p->x * (map->zoom);
 	y = p->y * (map->zoom);
 	p->x = ((x - y) * cos(0.523599));
@@ -59,9 +58,9 @@ void	draw_x_y(t_map *map, int x, int y)
 	t_point	a;
 	t_point	b;
 
-	while (x < map->width + 13)
+	while (x < map->width)
 	{
-		if (x + 1 < map->width + 13)
+		if (x + 1 < map->width)
 		{
 			a.x = x;
 			a.y = y;
@@ -108,7 +107,7 @@ int	draw_map(t_map *map)
 	clear_window(map);
 	while (y < map->height)
 	{
-		x = 13;
+		x = 0;
 		draw_x_y(map, x, y);
 		y++;
 	}

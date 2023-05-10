@@ -6,15 +6,15 @@
 #    By: obouhrir <obouhrir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/13 02:06:43 by obouhrir          #+#    #+#              #
-#    Updated: 2023/05/05 21:53:38 by obouhrir         ###   ########.fr        #
+#    Updated: 2023/05/10 15:01:40 by obouhrir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #varibales
 NAME   = fdf
 CC	   = cc 
-CFLAGS = -Wall -Werror -Wextra 
-MLX    = -lmlx -framework OpenGL -framework AppKit
+CFLAGS = -Wall -Werror -Wextra
+MLX    = -lmlx -framework OpenGL -framework AppKit 
 SRC    = fdf.c utl.c utl2.c get_next_line.c get_next_line_utils.c check.c draw.c free.c get_value.c keys.c
 
 #colours

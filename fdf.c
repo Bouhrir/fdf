@@ -6,7 +6,7 @@
 /*   By: obouhrir <obouhrir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 00:46:20 by obouhrir          #+#    #+#             */
-/*   Updated: 2023/05/08 18:51:01 by obouhrir         ###   ########.fr       */
+/*   Updated: 2023/05/10 20:23:58 by obouhrir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	init(t_map *map)
 	map->img.addr = mlx_get_data_addr(map->img.img, &map->img.bits_per_pixel,
 			&map->img.line_length, &map->img.endian);
 	map->zoom = 30;
-	map->x_offset = 0;
-	map->y_offset = 0;
+	map->x_offset = WIDTH / 2;
+	map->y_offset = HEIGHT / 15;
 }
 
 int	main(int ac, char **av)
@@ -38,6 +38,8 @@ int	main(int ac, char **av)
 		check_name(av[1], ".fdf");
 		get_value(av[1], &map);
 		init(&map);
+		if (map.width >= 100 || map.height >= 100)
+			map.zoom /= 15;
 		mlx_loop_hook(map.mlx, &draw_map, &map);
 		mlx_hook(map.win, 2, 0, key_hook, &map);
 		mlx_mouse_hook(map.win, mouse_hook, &map);

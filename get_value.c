@@ -6,7 +6,7 @@
 /*   By: obouhrir <obouhrir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:29:36 by obouhrir          #+#    #+#             */
-/*   Updated: 2023/05/08 22:35:43 by obouhrir         ###   ########.fr       */
+/*   Updated: 2023/05/10 20:21:57 by obouhrir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,6 @@ int	map_len(char **area)
 	while (area[i])
 		i++;
 	return (i);
-}
-
-void	wrong_line(char **splited)
-{
-	int	len;
-	int	i;
-	int	x;
-
-	i = 0;
-	x = 1;
-	len = ft_strlen(splited[0]);
-	while (splited[x])
-	{
-		i = ft_strlen(splited[x]);
-		if (i < len)
-		{
-			write(2, "Found wrong line length. Exiting.\n", 34);
-			exit(1);
-		}
-		x++;
-	}	
 }
 
 void	check_line(char **splited, t_map *map)
@@ -62,7 +41,6 @@ void	check_line(char **splited, t_map *map)
 		write(2, "Wrong lines\n", 12);
 		exit(1);
 	}
-	wrong_line(splited);
 }
 
 char	**fill_area(char *file, t_map *map)

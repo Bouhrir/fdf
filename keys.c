@@ -6,7 +6,7 @@
 /*   By: obouhrir <obouhrir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 18:43:28 by obouhrir          #+#    #+#             */
-/*   Updated: 2023/05/06 17:02:48 by obouhrir         ###   ########.fr       */
+/*   Updated: 2023/05/10 17:58:51 by obouhrir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	mouse_hook(int key, int x, int y, t_map *map)
 	(void)x;
 	(void)y;
 	if (key == IN)
-		map->zoom += 2;
+		map->zoom += 1;
 	if (key == OUT)
 		map->zoom -= 1;
 	return (1);
